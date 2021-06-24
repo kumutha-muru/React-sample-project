@@ -1,18 +1,23 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-// const userData = [
-//     {
-//         sno: '1',
-//         name: 'karthi',
-//         city: 'madurai'
-//     },
-//     {
-//         sno: '2',
-//         name: 'kavitha',
-//         city: 'madurai'
-//     }
-// ];
 class Container extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            userData: [
+                {
+                    sno: '1',
+                    name: 'karthi',
+                    city: 'madurai'
+                },
+                {
+                    sno: '2',
+                    name: 'kavitha',
+                    city: 'madurai'
+                }]
+        };
+    }
     render() {
         return (
             <Table striped bordered hover className="w-50">
@@ -23,21 +28,19 @@ class Container extends React.Component {
                         <th>City</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>karthi</td>
-                        <td>madurai</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>kavitha</td>
-                        <td>madurai</td>
-                    </tr>
-                </tbody>
+                {this.state.userData.map((data, mykey) =>
+                    <tbody key={mykey} >
+                        <tr>
+                            <td>{data.sno}</td>
+                            <td>{data.name}</td>
+                            <td>{data.city}</td>
+                        </tr>
+                    </tbody>
+                )}
             </Table>
-        )
+        );
     }
+
 }
 
 export default Container
