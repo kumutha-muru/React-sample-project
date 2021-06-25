@@ -1,23 +1,6 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 class Container extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            userData: [
-                {
-                    sno: '1',
-                    name: 'karthi',
-                    city: 'madurai'
-                },
-                {
-                    sno: '2',
-                    name: 'kavitha',
-                    city: 'madurai'
-                }]
-        };
-    }
     render() {
         return (
             <Table striped bordered hover className="w-50">
@@ -28,7 +11,7 @@ class Container extends React.Component {
                         <th>City</th>
                     </tr>
                 </thead>
-                {this.state.userData.map((data, mykey) =>
+                {this.props.value.map((data, mykey) =>
                     <tbody key={mykey} >
                         <tr>
                             <td>{data.sno}</td>
