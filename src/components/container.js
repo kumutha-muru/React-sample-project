@@ -1,11 +1,9 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 class Container extends React.Component {
-    handleRemoveRow = (sno) => {
-        console.log("id", sno)
-        let rows = [this.props.value]
-        rows.splice(sno, 1)
-
+    handleRemoveRow = (index) => {
+        let rows = [...this.props.value]
+        this.props.value.splice(index, 1)
         this.setState({
             rows: rows
         })
@@ -26,7 +24,7 @@ class Container extends React.Component {
                             <td>{data.sno}</td>
                             <td>{data.name}</td>
                             <td>{data.city}</td>
-                            <td><button onClick={() => this.handleRemoveRow(data.sno)}>Delete</button></td>
+                            <td><button onClick={() => this.handleRemoveRow(index)}>Delete</button></td>
                         </tr>
                     </tbody>
                 )}
