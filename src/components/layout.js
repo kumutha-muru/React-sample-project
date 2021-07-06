@@ -3,45 +3,52 @@ import Header from './header';
 import Footer from './footer';
 import Container from './container';
 
-const userData = [
-    {
-        sno: '1',
-        name: 'karthi',
-        city: 'madurai'
-    },
-    {
-        sno: '2',
-        name: 'kavitha',
-        city: 'madurai'
-    },
-    {
-        sno: '3',
-        name: 'sasi',
-        city: 'madurai'
-    }, {
-        sno: '4',
-        name: 'kumar',
-        city: 'madurai'
-    }]
-
 class Layout extends React.Component {
-
-    handleAddRow() {
-        let a = userData;
-        a.push({
+    constructor(props) {
+        super(props)
+        this.state = {
+            userData: [
+                {
+                    sno: '1',
+                    name: 'karthi',
+                    city: 'madurai'
+                },
+                {
+                    sno: '2',
+                    name: 'kavitha',
+                    city: 'madurai'
+                },
+                {
+                    sno: '3',
+                    name: 'sasi',
+                    city: 'madurai'
+                }, {
+                    sno: '4',
+                    name: 'kumar',
+                    city: 'madurai'
+                }]
+        }
+    }
+    addRow() {
+        let userData = this.state.userData
+        userData.push({
             sno: '5',
             name: 'skumar',
             city: 'madurai'
-        });
-        this.setState({
-            a: a
         })
+        this.setState({
+            userData
+        });
+
     }
     render() {
         return (
             <div><Header />
-                <button onClick={() => this.handleAddRow()}>Add</button>
-                <Container value={userData} />
+
+                <div>
+                    <button onClick={() => this.addRow()}>Add</button></div>
+
+                <Container value={this.state.userData} />
                 <Footer /></div >
         );
     }

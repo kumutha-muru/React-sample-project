@@ -15,7 +15,7 @@ class Header extends React.Component {
                             className="d-inline-block align-top"
                         />
                     </Navbar.Brand>
-                    <Navbar.Brand className="justify-content-center">React Bootstrap</Navbar.Brand>
+                    <Navbar.Brand >React Bootstrap</Navbar.Brand>
                 </Navbar>
             </div>
         )
